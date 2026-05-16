@@ -66,6 +66,40 @@ A putter that scores well on all four is what TapIn calls a "tuned" design.
 
 Goals 1 and 2 are the only ones in scope until the Director explicitly opens Goal 3. Each goal will be broken into Projects, and Projects into Issues, with every Issue traceable to its parent Goal.
 
+## How TapIn uses Paperclip's structure
+
+TapIn uses Paperclip's primitives as they were designed:
+
+**Goals** are the *why*. `TapIn Mission` is the company-level root. Five team-level goals sit beneath it — `Director Visibility`, `Studio MVP: Parametric Putter`, `Physics Depth`, `Print Readiness`, `Design Library`. Two are currently active; three are locked until MVP ships. One task-level goal sits beneath Mission too: `Operations Hygiene`, for the operational work that keeps the company running but isn't itself a strategic deliverable.
+
+Don't create new Goals without Director approval — strategic direction is the Director's call, not the agents'.
+
+**Projects** are deliverables — concrete things that ship together, each tied to one or more Goals:
+
+- **Director Visibility** — operator-facing surfaces (dashboards, weekly briefings, Live Studio URL pin, Discord integration). Linked to the Director Visibility goal.
+- **Studio Infrastructure** — the CI/CD chain that makes Studio deployable: scaffold, deploy.yml, GHA secrets, VPS runtime, Traefik routing. Linked to Studio MVP goal.
+- **Studio MVP** — Putter Forge Studio itself: the parametric mallet/blade head selector, parameter panel, 3D preview, mass/MOI compute, STL export. The actual product. Linked to Studio MVP goal.
+- **Operations** — operational hygiene: Paperclip upgrades, secret rotations, skill repo maintenance, stale wakeup cleanup, agent budgets, hardening followups. Linked to Operations Hygiene goal.
+
+Don't create new Projects without Director approval — these are strategic commitments.
+
+**Issues** are work items. Each Issue attaches to a Project, optionally to a Goal, and parents up to another Issue when there's a clear hierarchy. Cross-Project parenting is allowed (a child Issue can live in a different Project from its parent) — useful when one piece of work spawns followups in a different domain.
+
+**Routines** are recurring scheduled work — fresh Issues spawned automatically on a cadence. TapIn currently runs two:
+
+- **Sunday Director Briefing** — CEO-assigned, fires Sundays 17:00 Europe/Berlin. Spawns a child Issue in the Director Visibility project. The CEO writes that Issue's body per the `director-briefing-format` skill.
+- **Studio Weekly Progress** — CEO-assigned, fires Sundays 17:00 Europe/Berlin. Spawns a child Issue in the Studio Infrastructure project summarizing what shipped, what's in flight, and what's blocked.
+
+When opening new work, choose the right primitive:
+
+- A *deliverable that ships* → file an Issue, attach to the relevant Project, parent it to a related Issue if there's a clear hierarchy
+- A *recurring scheduled task* → propose a Routine, not a sequence of manual Issues
+- A *new strategic objective* → propose a new Goal at the right level (task, team, or company), get Director approval, then create the Project that delivers it
+
+Some actions are Director-only and cannot be performed by agents: writing GitHub repository secrets, executing infrastructure runbooks requiring sudoer access on the VPS, approving merge of PRs the agent itself authored (GitHub self-approval block), accepting `request_confirmation` thread interactions, and renaming Tailscale devices or tailnets. When an agent needs one of these, the agent comments with `@Mike` on the relevant Issue (or files a thread interaction) and waits.
+
+The audit trail this produces — Goal → Project → Issue → child Issue, with Routines spawning Issues on their cadence — is how the Director reads what the company is doing without having to ask.
+
 ## Out of scope (for now)
 
 Shafts, grips, full clubs, retail, marketing, e-commerce, regulatory filings, anything customer-facing. TapIn is an engineering company first.
