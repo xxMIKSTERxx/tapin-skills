@@ -1,5 +1,7 @@
 # TapIn — Design System
 
+> Canonical source: `MN-Creation/tapin-design`. This is a mirror for agent skill-loading; iterate in the canonical repo.
+
 > One-line mission: TapIn designs metal-printable golf putters through a single in-house **computational engineering platform** that unifies physics, materials, and geometry.
 
 ## What TapIn is
