@@ -29,6 +29,8 @@ TapIn runs on a single Hostinger KVM VPS. Tailscale provides private network acc
 | `/opt/tapin-skills/` | Local clone of TapIn's skill library (public GitHub repo) |
 | `/var/lib/docker/volumes/docker_paperclip-data/_data/` | Paperclip's persistent data (Postgres data, instance config, secrets master key, skills, run logs) |
 | `~/.git-credentials` | Stored GitHub PAT credentials (mode 0600, root only) |
+| `/docker/traefik/` | Traefik reverse proxy install (Hostinger one-click). Contains `docker-compose.yml` (CLI-flag mode, `network_mode: host`) and `.env` for `${ACME_EMAIL}`. |
+| `/srv/tapin/studio/` | Studio runtime directory (owned by `tapin-deploy:tapin-deploy`, 2001:2001). `deploy.yml` writes `compose.studio.yml` here and runs `docker compose pull && up -d`. See TAP-48. |
 
 The Studio repo (`putter-forge-studio`) is not yet cloned locally — DevOps Engineer will set this up under `/opt/putter-forge-studio/` when needed.
 
@@ -40,7 +42,19 @@ Three containers run on this VPS:
 |---|---|---|---|
 | `docker-server-1` | `docker-server` (built locally) | Paperclip server (Node.js + UI) | 3100:3100 |
 | `docker-db-1` | `postgres:17-alpine` | Paperclip's Postgres database | 5432:5432 (TODO: remove external exposure) |
-| `traefik-traefik-1` | `traefik:latest` | Reverse proxy (currently unused for TapIn, reserved for Studio later) | varies |
+| `traefik-traefik-1` | `traefik:latest` | Reverse proxy. Hosts `web` (public IPv4 :80, Let's Encrypt HTTP-01 + redirect to `websecure`), `tailscale` (tailnet IP :80, Studio routes), `websecure` (:443, HTTPS). | host net |
+
+## Traefik entrypoints
+
+| Entrypoint | Bind | Purpose |
+|---|---|---|
+| `web` | `72.62.57.224:80` (public IPv4) | Pre-existing public route. Hosts Let's Encrypt HTTP-01 challenge resolver and the HTTP→HTTPS redirect to `websecure`. Rebound from `:80` to a specific IP via TAP-49 to free `0.0.0.0:80` for the `tailscale` entrypoint. |
+| `tailscale` | `100.124.155.122:80` | Studio routes. Matches `traefik.http.routers.studio.entrypoints=tailscale` in `compose.studio.yml`. Bound to the Tailscale IP so requests must come over the tailnet (no public exposure). Added via TAP-49. |
+| `websecure` | `:443` | Public HTTPS, terminated with Let's Encrypt certs. Unchanged by TAP-49. |
+
+**Mode:** CLI-flag (entrypoints defined in `command:` list, no static `traefik.yml`). **Network mode:** `host`. **API:** disabled (`--api.dashboard=false`, `--api.insecure=false`); verify entrypoint changes via host `ss -tlnp` + `docker logs` rather than `/api/entrypoints`. **Edits:** back up next to the file as `*.bak.YYYYMMDD-HHMMSSZ` before any restart; pre-restart syntax check via `sudo docker compose config -q`. Daemon restart impact: only Traefik (Paperclip publishes 3100 directly).
+
+**Tailnet hostname caveat:** the tailnet's actual MagicDNS suffix is `tail6af0d6.ts.net`, not `tapin.ts.net`. Rename to `tapin` is not available on the current Tailscale plan. Studio reaches users at `studio.tail6af0d6.ts.net` after the VPS device is renamed to `studio` in the Tailscale admin console (Director-owned).
 
 ## Common operations
 
