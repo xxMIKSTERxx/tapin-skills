@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 22px 28px; }
+  .cap { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .item { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .box { width: 100%; height: 80px; background: var(--surface-2); border: 1px solid var(--line); }
+  .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--fg-1); }
+  .val { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+</style></head>
+<body>
+  <div class="cap">Radii — near-sharp scale. Never above 8px.</div>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:0"></div><span class="lbl">radius-0 · 0</span><span class="val">tables, axes</span></div>
+    <div class="item"><div class="box" style="border-radius:2px"></div><span class="lbl">radius-1 · 2</span><span class="val">buttons, chips, inputs</span></div>
+    <div class="item"><div class="box" style="border-radius:4px"></div><span class="lbl">radius-2 · 4</span><span class="val">cards, modals, panels</span></div>
+    <div class="item"><div class="box" style="border-radius:8px"></div><span class="lbl">radius-3 · 8</span><span class="val">hero media</span></div>
+  </div>
+</body></html>

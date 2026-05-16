@@ -1,0 +1,15 @@
+/* Shared chrome for preview cards. Keep it minimal — the card IS the content. */
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg-1);
+}
+.preview-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.preview-stack { display: flex; flex-direction: column; gap: 16px; }
+.swatch { display: flex; flex-direction: column; gap: 6px; }
+.swatch-box { width: 100%; height: 64px; border-radius: var(--radius-2); border: 1px solid var(--line-soft); }
+.swatch-name { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); }
+.swatch-val  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+.tag { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; }

@@ -1,0 +1,361 @@
+/* =========================================================================
+   TapIn — Design Tokens
+   Colors, typography, spacing, radii, shadows, motion.
+   Use the semantic tokens (h1, p, --surface-1) in product code.
+   Raw tokens (--turf-900, --putter-500) are exposed for one-off needs.
+   ========================================================================= */
+
+/* ----- Webfonts ---------------------------------------------------------- */
+/* Inter is the canonical TapIn typeface — the brand wordmark is set in
+   Inter Bold (700) with tight tracking. IBM Plex Mono carries numerical /
+   data contexts. Both load from Google Fonts. */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap");
+
+:root {
+  /* ---------- Color: raw tokens ----------------------------------------- */
+
+  /* Turf — primary dark surface ramp. Slightly cool. */
+  --turf-950: #0B0F0D;
+  --turf-900: #121814;
+  --turf-850: #171E1A;
+  --turf-800: #1D2521;
+  --turf-700: #2A332E;
+  --turf-600: #3B453F;
+
+  /* Bone — light counter-surface (parchment). Slightly warm. */
+  --bone-50:  #F4F1EA;
+  --bone-100: #ECE7DC;
+  --bone-200: #D9D2C2;
+  --bone-300: #B7AE9B;
+  --bone-400: #8A8273;
+  --bone-500: #5C564B;
+  --bone-700: #2E2B25;
+  --bone-900: #1A1814;
+
+  /* Titanium — neutral mids. Cool gray. */
+  --ti-50:  #E8ECEA;
+  --ti-100: #CDD3D0;
+  --ti-200: #A6AEAB;
+  --ti-300: #7C8581;
+  --ti-400: #5A625F;
+  --ti-500: #3F4744;
+  --ti-600: #2C3331;
+
+  /* Putter — brand accent (computational green). */
+  --putter-50:  #E8FBEF;
+  --putter-100: #C7F4D7;
+  --putter-300: #8FEAB1;
+  --putter-500: #6BE095;
+  --putter-600: #3DCB72;
+  --putter-700: #1FA557;
+  --putter-900: #0B5A30;
+
+  /* Heat — data accent (stress, alert, hot region). */
+  --heat-50:  #FFE9DE;
+  --heat-300: #FFA37A;
+  --heat-500: #FF6B35;
+  --heat-600: #E54A14;
+  --heat-700: #B3370C;
+
+  /* Cool — secondary data accent (velocity, cold region, info). */
+  --cool-300: #93C5FF;
+  --cool-500: #4DA3FF;
+  --cool-700: #1F6FCC;
+
+  /* Signal — warn / error semantics. Used sparingly. */
+  --warn-500:  #F5C451;
+  --error-500: #E5484D;
+  --ok-500:    var(--putter-500);
+
+  /* ---------- Color: semantic tokens (DEFAULT = dark) ------------------- */
+
+  --bg:           var(--turf-950);
+  --surface-1:    var(--turf-900);   /* main canvas */
+  --surface-2:    var(--turf-850);   /* cards */
+  --surface-3:    var(--turf-800);   /* nested cards, popovers */
+  --surface-inv:  var(--bone-50);    /* parchment surface */
+
+  --fg-1:         #F4F1EA;           /* primary text */
+  --fg-2:         #C4C8C5;           /* secondary text */
+  --fg-3:         #8A918D;           /* tertiary text, labels */
+  --fg-4:         #5A625F;           /* placeholder, axis ticks */
+  --fg-inv:       var(--turf-950);   /* text on light parchment */
+
+  --line-soft:    rgba(255, 255, 255, 0.08);
+  --line:         rgba(255, 255, 255, 0.12);
+  --line-strong:  rgba(255, 255, 255, 0.20);
+
+  --accent:       var(--putter-500);
+  --accent-hover: #7CE6A2;
+  --accent-press: #5BD088;
+  --accent-fg:    var(--turf-950);   /* text on accent fill */
+
+  --data-hot:     var(--heat-500);
+  --data-cool:    var(--cool-500);
+  --data-mid:     var(--warn-500);
+
+  /* ---------- Type: family stacks --------------------------------------- */
+
+  --font-display: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* ---------- Type: scale (semantic) ------------------------------------ */
+  /* All sizes in rem; root = 16px. Line-heights are unitless. */
+
+  --fs-display-1: 5.5rem;   /* 88px — hero only, once per page */
+  --fs-display-2: 4rem;     /* 64px */
+  --fs-h1:        3rem;     /* 48px */
+  --fs-h2:        2.25rem;  /* 36px */
+  --fs-h3:        1.625rem; /* 26px */
+  --fs-h4:        1.25rem;  /* 20px */
+  --fs-body-lg:   1.125rem; /* 18px */
+  --fs-body:      1rem;     /* 16px */
+  --fs-body-sm:   0.875rem; /* 14px */
+  --fs-label:     0.75rem;  /* 12px — small caps eyebrow */
+  --fs-mono-lg:   1rem;
+  --fs-mono:      0.875rem;
+  --fs-mono-sm:   0.75rem;
+
+  --lh-tight:    1.0;
+  --lh-snug:     1.1;
+  --lh-normal:   1.45;
+  --lh-loose:    1.6;
+
+  --tracking-display: -0.04em;    /* Inter Bold wordmark uses tight tracking */
+  --tracking-heading: -0.025em;
+  --tracking-body:    -0.01em;    /* Inter benefits from slight negative tracking */
+  --tracking-label:   0.08em;     /* small-caps eyebrows */
+  --tracking-mono:    0;
+
+  /* ---------- Spacing scale --------------------------------------------- */
+
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  /* ---------- Radii ----------------------------------------------------- */
+
+  --radius-0: 0;
+  --radius-1: 2px;   /* buttons, chips, inputs */
+  --radius-2: 4px;   /* cards, modals */
+  --radius-3: 8px;   /* hero media */
+
+  /* ---------- Shadows --------------------------------------------------- */
+
+  --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+  --shadow-3: 0 24px 64px -16px rgba(0, 0, 0, 0.6);
+
+  /* ---------- Motion ---------------------------------------------------- */
+
+  --ease-precise:    cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out-sharp:  cubic-bezier(0.4, 0, 1, 1);
+  --dur-micro:  120ms;
+  --dur-state:  220ms;
+  --dur-scene:  480ms;
+
+  /* ---------- Layout ---------------------------------------------------- */
+
+  --grid-cols: 12;
+  --grid-gutter: 24px;
+  --grid-margin: 80px;
+  --topbar-h: 40px;
+  --rail-w-collapsed: 56px;
+  --rail-w-expanded: 240px;
+
+  color-scheme: dark;
+}
+
+/* ----- Parchment variant ------------------------------------------------- */
+/* For documentation, print contexts, and the marketing site's about pages. */
+[data-theme="parchment"] {
+  --bg:          var(--bone-50);
+  --surface-1:   var(--bone-50);
+  --surface-2:   #FFFFFF;
+  --surface-3:   var(--bone-100);
+  --surface-inv: var(--turf-900);
+
+  --fg-1:        var(--bone-900);
+  --fg-2:        #3D3A33;
+  --fg-3:        var(--bone-500);
+  --fg-4:        var(--bone-400);
+  --fg-inv:      var(--bone-50);
+
+  --line-soft:   rgba(0, 0, 0, 0.08);
+  --line:        rgba(0, 0, 0, 0.12);
+  --line-strong: rgba(0, 0, 0, 0.20);
+
+  --accent-fg:   var(--turf-950);
+
+  color-scheme: light;
+}
+
+/* =========================================================================
+   Semantic typography classes
+   Use these directly on elements; do not respec the raw tokens in product
+   code unless you're doing something genuinely one-off.
+   ========================================================================= */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.display-1, .display-2, h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-tight);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.display-1 { font-size: var(--fs-display-1); }
+.display-2 { font-size: var(--fs-display-2); }
+h1, .h1   { font-size: var(--fs-h1); letter-spacing: var(--tracking-display); }
+h2, .h2   { font-size: var(--fs-h2); letter-spacing: var(--tracking-display); }
+h3, .h3   { font-size: var(--fs-h3); line-height: var(--lh-snug); letter-spacing: var(--tracking-heading); font-weight: 600; }
+h4, .h4   {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: var(--tracking-heading);
+}
+
+p, .body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+  text-wrap: pretty;
+  max-width: 64ch;
+}
+
+.body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-loose); }
+.body-sm { font-size: var(--fs-body-sm); }
+
+.eyebrow, .label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase; /* eyebrow exception: small caps OR uppercase OK at this size */
+  color: var(--fg-3);
+}
+
+.mono, code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+  color: var(--fg-1);
+}
+.mono-lg { font-size: var(--fs-mono-lg); }
+.mono-sm { font-size: var(--fs-mono-sm); }
+
+.num, .tnum {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* Engineering unit suffix: dim slightly */
+.unit { color: var(--fg-3); font-weight: 300; margin-left: 0.15em; }
+
+/* =========================================================================
+   Element-level utilities
+   ========================================================================= */
+
+.hairline-t { border-top: 1px solid var(--line-soft); }
+.hairline-b { border-bottom: 1px solid var(--line-soft); }
+.hairline   { border: 1px solid var(--line-soft); }
+
+.card {
+  background: var(--surface-2);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-2);
+  padding: var(--s-5);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  height: 22px;
+  padding: 0 8px;
+  border-radius: var(--radius-1);
+  border: 1px solid var(--line-soft);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-sm);
+  color: var(--fg-2);
+  letter-spacing: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  height: 36px;
+  padding: 0 16px;
+  border-radius: var(--radius-1);
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: background var(--dur-micro) var(--ease-precise),
+              border-color var(--dur-micro) var(--ease-precise),
+              transform var(--dur-micro) var(--ease-precise);
+}
+.btn:hover { background: var(--surface-2); border-color: var(--line-strong); }
+.btn:active { transform: scale(0.985); }
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+}
+.btn--primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn--primary:active { background: var(--accent-press); }
+
+.btn--ghost { border-color: transparent; }
+.btn--ghost:hover { background: var(--surface-2); }
+
+.btn--compact { height: 28px; padding: 0 12px; font-size: var(--fs-mono-sm); }
+.btn--hero    { height: 44px; padding: 0 22px; font-size: var(--fs-body); }
+
+/* Focus ring (universal) */
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Dot-grid background utility (engineering surface) */
+.dotgrid {
+  background-image: radial-gradient(circle, var(--line) 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-position: 0 0;
+}
+.dotgrid-fine {
+  background-image: radial-gradient(circle, var(--line-soft) 1px, transparent 1px);
+  background-size: 8px 8px;
+}

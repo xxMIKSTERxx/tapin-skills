@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Motion</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 22px 28px; }
+  .cap { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: flex-start; }
+  .grp h3 { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); margin: 0 0 10px; font-weight: 400; }
+  .tbl { font-family: var(--font-mono); font-size: 11px; color: var(--fg-1); }
+  .tbl div { display: grid; grid-template-columns: 90px 1fr; padding: 5px 0; border-bottom: 1px solid var(--line-soft); }
+  .tbl div:last-child { border-bottom: none; }
+  .tbl span:last-child { color: var(--fg-3); }
+  .demo { height: 80px; position: relative; border: 1px solid var(--line-soft); border-radius: var(--radius-2); margin-top: 12px; overflow: hidden; }
+  .dot { position: absolute; top: 50%; left: 6%; width: 22px; height: 22px; background: var(--putter-500); border-radius: var(--radius-1); transform: translateY(-50%); animation: glide 2.4s cubic-bezier(0.2,0.8,0.2,1) infinite; }
+  @keyframes glide {
+    0%   { left: 6%; }
+    40%  { left: 86%; }
+    50%  { left: 86%; }
+    90%  { left: 6%; }
+    100% { left: 6%; }
+  }
+</style></head>
+<body>
+  <div class="cap">Motion — precise, restrained. No bounces, no springs.</div>
+  <div class="row">
+    <div class="grp">
+      <h3>Easing</h3>
+      <div class="tbl">
+        <div><span>--ease-precise</span><span>cubic-bezier(.2, .8, .2, 1)</span></div>
+        <div><span>--ease-out-sharp</span><span>cubic-bezier(.4, 0, 1, 1)</span></div>
+      </div>
+      <h3 style="margin-top:18px">Duration</h3>
+      <div class="tbl">
+        <div><span>--dur-micro</span><span>120 ms · hover, tap</span></div>
+        <div><span>--dur-state</span><span>220 ms · state change</span></div>
+        <div><span>--dur-scene</span><span>480 ms · scene transition</span></div>
+      </div>
+    </div>
+    <div class="grp">
+      <h3>Glide demo · --ease-precise</h3>
+      <div class="demo"><div class="dot"></div></div>
+    </div>
+  </div>
+</body></html>

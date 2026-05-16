@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Shadows / elevation</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 28px; background: var(--surface-1); }
+  .cap { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 22px; }
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .item { display: flex; flex-direction: column; gap: 10px; }
+  .box { height: 100px; background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: var(--radius-2); }
+  .e1 { box-shadow: 0 1px 0 rgba(0,0,0,0.4); }
+  .e2 { box-shadow: 0 8px 24px -8px rgba(0,0,0,0.5); }
+  .e3 { box-shadow: 0 24px 64px -16px rgba(0,0,0,0.6); }
+  .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--fg-1); }
+  .val { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); line-height: 1.4; }
+</style></head>
+<body>
+  <div class="cap">Elevation — hairlines do most of the work. No glow, no colored shadows.</div>
+  <div class="row">
+    <div class="item"><div class="box e1"></div><span class="lbl">shadow-1</span><span class="val">separator emphasis</span></div>
+    <div class="item"><div class="box e2"></div><span class="lbl">shadow-2</span><span class="val">menus, toasts, popovers</span></div>
+    <div class="item"><div class="box e3"></div><span class="lbl">shadow-3</span><span class="val">modals</span></div>
+  </div>
+</body></html>

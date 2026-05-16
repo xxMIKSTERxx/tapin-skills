@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Chips / capsules</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 24px 28px; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; width: 90px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .chip-status { background: rgba(107, 224, 149, 0.10); border-color: rgba(107, 224, 149, 0.35); color: var(--putter-500); }
+  .chip-warn   { background: rgba(245, 196, 81, 0.10); border-color: rgba(245, 196, 81, 0.35); color: var(--warn-500); }
+  .chip-error  { background: rgba(229, 72, 77, 0.10); border-color: rgba(229, 72, 77, 0.35); color: var(--error-500); }
+  .chip-data   { background: rgba(255, 107, 53, 0.10); border-color: rgba(255, 107, 53, 0.35); color: var(--heat-500); }
+</style></head>
+<body>
+  <div class="row"><span class="lbl">status</span>
+    <span class="chip chip-status"><span class="dot" style="background:var(--putter-500)"></span>validated</span>
+    <span class="chip chip-warn"><span class="dot" style="background:var(--warn-500)"></span>warn · MOI low</span>
+    <span class="chip chip-error"><span class="dot" style="background:var(--error-500)"></span>over-constrained</span>
+    <span class="chip"><span class="dot" style="background:var(--fg-3)"></span>idle</span>
+  </div>
+  <div class="row"><span class="lbl">units</span>
+    <span class="chip">354 g</span>
+    <span class="chip">5,820 g·cm²</span>
+    <span class="chip">Rₐ 1.2 µm</span>
+    <span class="chip">Ti-6Al-4V</span>
+    <span class="chip">± 0.05 mm</span>
+  </div>
+  <div class="row"><span class="lbl">filter</span>
+    <span class="chip" style="border-color:var(--line-strong);background:var(--surface-2);color:var(--fg-1)">mallet ×</span>
+    <span class="chip">blade</span>
+    <span class="chip">center-shaft</span>
+    <span class="chip chip-data">heat-map on</span>
+  </div>
+</body></html>

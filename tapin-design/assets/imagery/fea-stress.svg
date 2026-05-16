@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  
+  <defs>
+    <radialGradient id="fea-fill" cx="40%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B35" stop-opacity="0.85"></stop>
+      <stop offset="22%" stop-color="#F5C451" stop-opacity="0.7"></stop>
+      <stop offset="50%" stop-color="#6BE095" stop-opacity="0.5"></stop>
+      <stop offset="80%" stop-color="#4DA3FF" stop-opacity="0.3"></stop>
+      <stop offset="100%" stop-color="#1F6FCC" stop-opacity="0.15"></stop>
+    </radialGradient>
+    <clipPath id="face">
+      <rect x="180" y="120" width="440" height="260" rx="4"></rect>
+    </clipPath>
+  </defs>
+  <rect width="800" height="500" fill="#0B0F0D"></rect>
+
+  <pattern id="dgf" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="rgba(255,255,255,0.06)"></circle>
+  </pattern>
+  <rect width="800" height="500" fill="url(#dgf)"></rect>
+
+  
+  <g clip-path="url(#face)">
+    <rect x="180" y="120" width="440" height="260" fill="url(#fea-fill)"></rect>
+
+    
+    <g stroke="#F4F1EA" stroke-width="0.4" opacity="0.18">
+      <path d="M180 150 H 620 M180 180 H 620 M180 210 H 620 M180 240 H 620 M180 270 H 620 M180 300 H 620 M180 330 H 620 M180 360 H 620"></path>
+      <path d="M210 120 V 380 M240 120 V 380 M270 120 V 380 M300 120 V 380 M330 120 V 380 M360 120 V 380 M390 120 V 380 M420 120 V 380 M450 120 V 380 M480 120 V 380 M510 120 V 380 M540 120 V 380 M570 120 V 380 M600 120 V 380"></path>
+    </g>
+  </g>
+
+  
+  <rect x="180" y="120" width="440" height="260" rx="4" fill="none" stroke="#F4F1EA" stroke-width="1.5"></rect>
+
+  
+  <g stroke="#F4F1EA" stroke-width="1" fill="none">
+    <circle cx="360" cy="250" r="6"></circle>
+    <line x1="354" y1="250" x2="366" y2="250"></line>
+    <line x1="360" y1="244" x2="360" y2="256"></line>
+  </g>
+
+  
+  <g stroke="#F4F1EA" stroke-width="0.75" fill="none">
+    <line x1="368" y1="244" x2="450" y2="180"></line>
+  </g>
+  <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EA">
+    <text x="455" y="178">σ_max = 248 MPa</text>
+    <text x="455" y="193" fill="#8A918D">@ t = 0.18 ms</text>
+  </g>
+
+  
+  <g transform="translate(660, 130)">
+    <text x="0" y="-8" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8A918D" letter-spacing="1">σ (MPa)</text>
+    <rect x="0" y="0" width="14" height="240" fill="url(#fea-fill)" stroke="#3F4744" stroke-width="0.5"></rect>
+    <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#8A918D">
+      <text x="20" y="6">280</text>
+      <text x="20" y="66">210</text>
+      <text x="20" y="126">140</text>
+      <text x="20" y="186">70</text>
+      <text x="20" y="244">0</text>
+    </g>
+  </g>
+
+  
+  <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#8A918D">
+    <text x="60" y="40" letter-spacing="2" font-weight="500" fill="#C4C8C5">FIG. 11 — VON-MISES STRESS, FACE PLANE</text>
+    <text x="60" y="55">Impact 1.45 m·s⁻¹ · 45 g ball · t = 0.18 ms</text>
+  </g>
+</svg>

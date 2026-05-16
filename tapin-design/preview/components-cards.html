@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Cards</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 22px 28px; background: var(--surface-1); }
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .c { background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: var(--radius-2); padding: 18px; }
+  .c.active { border-color: var(--putter-500); }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; }
+  .title { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--fg-1); line-height: 1.05; margin: 8px 0 4px; letter-spacing: -0.035em; }
+  .id { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); }
+  .stats { display: flex; gap: 14px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line-soft); }
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+  .v { font-family: var(--font-mono); font-size: 14px; color: var(--fg-1); font-variant-numeric: tabular-nums; }
+  .u { font-family: var(--font-mono); font-size: 9px; color: var(--fg-3); letter-spacing: 0.06em; text-transform: uppercase; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="c">
+      <span class="lbl">Tap · 042</span>
+      <div class="title">Fang · low-MOI</div>
+      <span class="id">v3 · 2026-05-12</span>
+      <div class="stats"><div class="stat"><span class="v">348</span><span class="u">mass g</span></div><div class="stat"><span class="v">5,420</span><span class="u">MOI g·cm²</span></div></div>
+    </div>
+    <div class="c active">
+      <span class="lbl" style="color:var(--putter-500)">Tap · 043 · active</span>
+      <div class="title">Fang · balanced</div>
+      <span class="id">v7 · 2026-05-15</span>
+      <div class="stats"><div class="stat"><span class="v">354</span><span class="u">mass g</span></div><div class="stat"><span class="v">5,820</span><span class="u">MOI g·cm²</span></div></div>
+    </div>
+    <div class="c">
+      <span class="lbl">Tap · 044</span>
+      <div class="title">Fang · high-MOI</div>
+      <span class="id">v2 · 2026-05-15</span>
+      <div class="stats"><div class="stat"><span class="v">361</span><span class="u">mass g</span></div><div class="stat"><span class="v">6,140</span><span class="u">MOI g·cm²</span></div></div>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Data row</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 22px 28px; }
+  .cap { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+  .tbl { display: grid; grid-template-columns: 1.4fr 0.8fr 1fr 0.8fr; gap: 0; border-top: 1px solid var(--line-soft); }
+  .tbl > div { padding: 9px 14px; border-bottom: 1px solid var(--line-soft); font-family: var(--font-mono); font-size: 12px; color: var(--fg-2); display: flex; align-items: center; gap: 8px; }
+  .head > div { color: var(--fg-3); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .val { font-variant-numeric: tabular-nums; color: var(--fg-1) !important; justify-content: flex-end; }
+  .delta-up { color: var(--putter-500) !important; }
+  .delta-down { color: var(--heat-500) !important; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--putter-500); display: inline-block; }
+</style></head>
+<body>
+  <div class="cap">Engineering readout row</div>
+  <div class="tbl head"><div>property</div><div>value</div><div>target</div><div>Δ</div></div>
+  <div class="tbl">
+    <div><span class="dot"></span>head_mass</div>
+    <div class="val">354.218 g</div>
+    <div class="val" style="color:var(--fg-3) !important">350.0 g</div>
+    <div class="val delta-down">+4.22</div>
+    <div><span class="dot"></span>moi_y</div>
+    <div class="val">5,820 g·cm²</div>
+    <div class="val" style="color:var(--fg-3) !important">5,800</div>
+    <div class="val delta-up">+20</div>
+    <div><span class="dot"></span>face_roughness</div>
+    <div class="val">Rₐ 1.20 µm</div>
+    <div class="val" style="color:var(--fg-3) !important">≤ 1.6 µm</div>
+    <div class="val delta-up">✓</div>
+    <div><span class="dot" style="background:var(--warn-500)"></span>modal_1f</div>
+    <div class="val">4,103 Hz</div>
+    <div class="val" style="color:var(--fg-3) !important">3,800–4,200</div>
+    <div class="val delta-up">✓</div>
+  </div>
+</body></html>

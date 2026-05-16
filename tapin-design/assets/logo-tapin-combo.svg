@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 460" width="440" height="460">
+  <g transform="translate(100, 50)">
+    <rect x="20" y="30" width="200" height="36" fill="#0A0A0A"></rect>
+    <rect x="50" y="30" width="36" height="160" fill="#0A0A0A"></rect>
+  </g>
+  <text x="220" y="425" text-anchor="middle" font-family="&#39;Inter&#39;, &#39;SF Pro Display&#39;, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, Arial, sans-serif" font-weight="700" font-size="140" fill="#0A0A0A" letter-spacing="-5">TapIn</text>
+</svg>

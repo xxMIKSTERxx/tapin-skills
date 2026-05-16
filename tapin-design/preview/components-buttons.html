@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 24px 28px; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; width: 110px; }
+</style></head>
+<body>
+  <div class="row"><span class="lbl">primary</span>
+    <button class="btn btn--primary">Compute geometry</button>
+    <button class="btn btn--primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 20 7"/></svg>Validate</button>
+    <button class="btn btn--primary btn--compact">Slice</button>
+  </div>
+  <div class="row"><span class="lbl">secondary</span>
+    <button class="btn">Cancel</button>
+    <button class="btn">Export STL</button>
+    <button class="btn btn--compact">Reset</button>
+  </div>
+  <div class="row"><span class="lbl">ghost</span>
+    <button class="btn btn--ghost">Open log</button>
+    <button class="btn btn--ghost">View mesh</button>
+  </div>
+  <div class="row"><span class="lbl">hero</span>
+    <button class="btn btn--primary btn--hero">Generate design family</button>
+    <button class="btn btn--hero">Schedule a fitting</button>
+  </div>
+</body></html>
