@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 24px 28px; }
+  .row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 24px; align-items: end; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .label { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; }
+  .input {
+    height: 34px; padding: 0 12px; background: var(--surface-2); border: 1px solid var(--line);
+    border-radius: var(--radius-1); color: var(--fg-1); font-family: var(--font-sans); font-size: 14px;
+    transition: border-color var(--dur-micro) var(--ease-precise);
+  }
+  .input:focus { outline: none; border-color: var(--accent); }
+  .input::placeholder { color: var(--fg-4); }
+  .input-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  .input-row { display: flex; align-items: center; }
+  .suffix { height: 34px; padding: 0 12px; display: flex; align-items: center; border: 1px solid var(--line); border-left: 0; border-radius: 0 var(--radius-1) var(--radius-1) 0; background: var(--surface-3); font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
+  .input.with-suffix { border-radius: var(--radius-1) 0 0 var(--radius-1); flex: 1; }
+  .select { background-image: linear-gradient(45deg, transparent 50%, var(--fg-3) 50%), linear-gradient(135deg, var(--fg-3) 50%, transparent 50%); background-position: calc(100% - 14px) 14px, calc(100% - 10px) 14px; background-size: 4px 4px, 4px 4px; background-repeat: no-repeat; appearance: none; padding-right: 28px; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="field">
+      <label class="label">Stroke profile</label>
+      <select class="input select"><option>SAM PuttLab · upload</option><option>Manual</option></select>
+    </div>
+    <div class="field">
+      <label class="label">Head family</label>
+      <select class="input select"><option>Mallet · fang</option><option>Blade · Anser</option></select>
+    </div>
+    <div class="field">
+      <label class="label">Target MOI (y)</label>
+      <div class="input-row"><input class="input input-mono with-suffix" type="text" value="5820"><div class="suffix">g·cm²</div></div>
+    </div>
+    <div class="field">
+      <label class="label">Head mass</label>
+      <div class="input-row"><input class="input input-mono with-suffix" type="text" value="354"><div class="suffix">g</div></div>
+    </div>
+  </div>
+</body></html>

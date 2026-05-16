@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Content fundamentals</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 24px 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .col h3 { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 12px; font-weight: 500; }
+  .yes, .no { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; }
+  .mark { font-family: var(--font-mono); font-size: 11px; width: 14px; line-height: 1.6; }
+  .yes .mark { color: var(--putter-500); }
+  .no .mark { color: var(--heat-500); }
+  .ex { font-family: var(--font-sans); font-size: 13px; color: var(--fg-2); line-height: 1.4; }
+  .ex.fail { text-decoration: line-through; color: var(--fg-4); }
+</style></head>
+<body>
+  <div class="col">
+    <h3>Voice — do</h3>
+    <div class="yes"><span class="mark">✓</span><span class="ex">A putter, computed.</span></div>
+    <div class="yes"><span class="mark">✓</span><span class="ex">Geometry validated. 354 g, MOI 5,820 g·cm², modal 1f at 4.1 kHz.</span></div>
+    <div class="yes"><span class="mark">✓</span><span class="ex">Constraint set is over-determined. Relax one of: face loft, hosel offset, total mass.</span></div>
+    <div class="yes"><span class="mark">✓</span><span class="ex">Designed in Zürich. Printed in titanium.</span></div>
+  </div>
+  <div class="col">
+    <h3>Voice — don't</h3>
+    <div class="no"><span class="mark">✕</span><span class="ex fail">The most revolutionary putter ever made 🚀</span></div>
+    <div class="no"><span class="mark">✕</span><span class="ex fail">We're so excited to unleash a game-changing experience.</span></div>
+    <div class="no"><span class="mark">✕</span><span class="ex fail">AI-Powered Putters For The Modern Golfer.</span></div>
+    <div class="no"><span class="mark">✕</span><span class="ex fail">Sink More Putts — Guaranteed!</span></div>
+  </div>
+</body></html>

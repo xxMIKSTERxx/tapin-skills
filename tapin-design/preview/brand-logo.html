@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 0; display: grid; grid-template-columns: 1.2fr 0.8fr 0.7fr; gap: 0; align-items: stretch; height: 100vh; margin: 0; }
+  .panel { padding: 28px; display: flex; flex-direction: column; gap: 12px; justify-content: center; align-items: flex-start; }
+  .dark   { background: var(--turf-950); color: var(--bone-50); border-right: 1px solid var(--line-soft); }
+  .light  { background: var(--bone-50); color: #0A0A0A; border-right: 1px solid var(--line-soft); }
+  .accent { background: var(--putter-500); color: var(--turf-950); }
+  .lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
+  .light .lbl  { color: var(--bone-500); }
+  .accent .lbl { color: var(--turf-900); opacity: 0.75; }
+</style></head>
+<body>
+  <div class="panel dark">
+    <span class="lbl">Combo lockup · on turf-950</span>
+    <svg viewBox="0 0 440 460" width="160" height="auto" style="color: inherit; max-width: 100%;" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(100, 50)" fill="currentColor">
+        <rect x="20" y="30" width="200" height="36"/>
+        <rect x="50" y="30" width="36" height="160"/>
+      </g>
+      <text x="220" y="425" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="140" fill="currentColor" letter-spacing="-5">TapIn</text>
+    </svg>
+  </div>
+  <div class="panel light">
+    <span class="lbl">Combo · on bone-50</span>
+    <svg viewBox="0 0 440 460" width="120" height="auto" style="color: inherit;" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(100, 50)" fill="currentColor">
+        <rect x="20" y="30" width="200" height="36"/>
+        <rect x="50" y="30" width="36" height="160"/>
+      </g>
+      <text x="220" y="425" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="140" fill="currentColor" letter-spacing="-5">TapIn</text>
+    </svg>
+    <span class="lbl">#0A0A0A</span>
+  </div>
+  <div class="panel accent">
+    <span class="lbl">Mark · on putter-500</span>
+    <svg viewBox="0 0 240 200" width="90" height="auto" style="color: inherit;" xmlns="http://www.w3.org/2000/svg">
+      <g fill="currentColor">
+        <rect x="20" y="30" width="200" height="36"/>
+        <rect x="50" y="30" width="36" height="160"/>
+      </g>
+    </svg>
+    <span class="lbl">Putter, heel view</span>
+  </div>
+</body></html>

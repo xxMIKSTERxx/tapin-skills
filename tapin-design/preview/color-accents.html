@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Brand accents</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 22px 28px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grp { }
+  .grp h3 { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 10px; font-weight: 500; }
+  .stack { display: flex; flex-direction: column; gap: 6px; }
+  .sw { display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 10px; }
+  .chip { height: 28px; width: 28px; border-radius: var(--radius-1); border: 1px solid var(--line-soft); }
+  .n { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); }
+  .v { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+  .hero { height: 60px; border-radius: var(--radius-2); margin-bottom: 8px; display: flex; align-items: center; padding: 0 14px; font-family: var(--font-mono); font-size: 11px; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="grp">
+      <h3>Putter · brand</h3>
+      <div class="hero" style="background:#6BE095;color:#0B0F0D">primary action</div>
+      <div class="stack">
+        <div class="sw"><div class="chip" style="background:#E8FBEF"></div><span class="n">putter-50</span><span class="v">#E8FBEF</span></div>
+        <div class="sw"><div class="chip" style="background:#8FEAB1"></div><span class="n">putter-300</span><span class="v">#8FEAB1</span></div>
+        <div class="sw"><div class="chip" style="background:#6BE095"></div><span class="n">putter-500</span><span class="v">#6BE095</span></div>
+        <div class="sw"><div class="chip" style="background:#3DCB72"></div><span class="n">putter-600</span><span class="v">#3DCB72</span></div>
+        <div class="sw"><div class="chip" style="background:#1FA557"></div><span class="n">putter-700</span><span class="v">#1FA557</span></div>
+      </div>
+    </div>
+    <div class="grp">
+      <h3>Heat · data hot</h3>
+      <div class="hero" style="background:#FF6B35;color:#0B0F0D">stress · alert</div>
+      <div class="stack">
+        <div class="sw"><div class="chip" style="background:#FFE9DE"></div><span class="n">heat-50</span><span class="v">#FFE9DE</span></div>
+        <div class="sw"><div class="chip" style="background:#FFA37A"></div><span class="n">heat-300</span><span class="v">#FFA37A</span></div>
+        <div class="sw"><div class="chip" style="background:#FF6B35"></div><span class="n">heat-500</span><span class="v">#FF6B35</span></div>
+        <div class="sw"><div class="chip" style="background:#E54A14"></div><span class="n">heat-600</span><span class="v">#E54A14</span></div>
+        <div class="sw"><div class="chip" style="background:#B3370C"></div><span class="n">heat-700</span><span class="v">#B3370C</span></div>
+      </div>
+    </div>
+    <div class="grp">
+      <h3>Cool · data cool</h3>
+      <div class="hero" style="background:#4DA3FF;color:#0B0F0D">velocity · info</div>
+      <div class="stack">
+        <div class="sw"><div class="chip" style="background:#93C5FF"></div><span class="n">cool-300</span><span class="v">#93C5FF</span></div>
+        <div class="sw"><div class="chip" style="background:#4DA3FF"></div><span class="n">cool-500</span><span class="v">#4DA3FF</span></div>
+        <div class="sw"><div class="chip" style="background:#1F6FCC"></div><span class="n">cool-700</span><span class="v">#1F6FCC</span></div>
+        <div class="sw"><div class="chip" style="background:#F5C451"></div><span class="n">warn-500</span><span class="v">#F5C451</span></div>
+        <div class="sw"><div class="chip" style="background:#E5484D"></div><span class="n">error-500</span><span class="v">#E5484D</span></div>
+      </div>
+    </div>
+  </div>
+</body></html>
