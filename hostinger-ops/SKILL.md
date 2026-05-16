@@ -106,6 +106,16 @@ curl -sS -o /dev/null -w 'HTTP %{http_code}\n' http://100.124.155.122:3100/api/h
 - **Do not change the host VPS timezone or container timezones casually.** Both are intentional for now.
 - **Do not enable inbound network ports** beyond what's already open. Tailscale is the management network.
 
+## GitHub Actions secrets — paste gotcha
+
+The deploy pipeline (`.github/workflows/deploy.yml`) reads ~7 repo secrets to reach this VPS over Tailscale. When entering or rotating those secrets in the GitHub web UI, the textbox **silently preserves trailing newlines on paste**.
+
+- Short values (`VPS_SSH_USER`, `VPS_SSH_HOST`, etc.) — **type them**, do not paste. A trailing `\n` makes them fail unpredictably downstream (`OAuth identity empty`-style errors, SSH host lookups failing, etc.).
+- Long values (`*_SSH_KEY`, `*_TOKEN`, `TS_OAUTH_SECRET`) — paste is generally fine, but verify with a `workflow_dispatch` test deploy after any rotation.
+- After rotation, the first push to `main` should go all the way through: build & push GHCR → tailnet connect → compose sync → container roll → smoke `http://studio.tail6af0d6.ts.net/api/health` returns 200.
+
+The known good secret set (writing as of TAP-47 close): `TS_OAUTH_CLIENT_ID`, `TS_OAUTH_SECRET`, `VPS_SSH_USER`, `VPS_SSH_HOST`, `VPS_SSH_KEY`, `GHCR_PULL_TOKEN` (classic PAT with `read:packages`), and the Paperclip API token used to PATCH the live-URL issue.
+
 ## Tech debt list (parked)
 
 These are known issues not blocking forward progress:
